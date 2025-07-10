@@ -1,0 +1,15 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-error, .contenido-error{
+    border: 1px solid red;
+}
+
+.error-titulo, .error-contenido{
+    color: red;
+    font-size: 0.9rem;
+}

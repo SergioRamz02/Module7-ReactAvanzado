@@ -2,6 +2,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Form from './Components/Form'
+import NuevoPost from './Components/NuevoPost'
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
       </div>
       <h1>Uso de useForm()</h1>
       <Form />
+      <h1>Formulario Nuevo Post</h1>
+      <NuevoPost />
     </>
   )
 }
