@@ -5,11 +5,25 @@
     align-items: center;
 }
 
-.titulo-error, .contenido-error{
+.input-error{
     border: 1px solid red;
 }
 
-.error-titulo, .error-contenido{
+.sucess-message{
+    color: green;
+    font-weight: 700;
+}
+
+.form-container p{
     color: red;
     font-size: 0.9rem;
+}
+
+.form-container label {
+    padding: 0% 15%;
+    align-self: flex-start;
+}
+
+#titulo, #contenido, #email{
+    width: 70%;
 }

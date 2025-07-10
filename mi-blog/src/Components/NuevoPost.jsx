@@ -1,42 +1,49 @@
-import React from "react";
+import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import "../assets/Styles/NuevoPost.css"
 
 export default function NuevoPost(){
-    const {register, handleSubmit, formState: {errors}} = useForm();
+    const {register, handleSubmit, reset, formState: {errors}} = useForm();
+    const [message, setMessage] = useState("");
 
     const onSubmit = (data) =>{
-        console.log(data);
+        console.log("Datos del post:", data);
+        setMessage("¡Publicación enviada correctamente!");
+        reset();
     }
 
     return(
         <>
-        <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
-            <label htmlFor="">Título</label>
-            <input className={errors.titulo ? "titulo-error": ""} 
+        <form onSubmit={handleSubmit(onSubmit)} className="form-container">
+            <label htmlFor="titulo" >Título</label>
+            <input 
+                id="titulo"
+                className={errors.titulo ? "input-error": ""} 
                 type="text" 
                 placeholder="Título" 
                 {...register("titulo", {required: true, minLength: 5})} />
-            
-            {errors.titulo && (
-                <span className="error-titulo">
-                    {errors.titulo.type === "required" ? "Campo obligatorio" : "Debe tener al menos 5 caracteres"}
-                    </span>) }
+            {errors.titulo && <p>El título debe tener al menos 5 caracteres.</p>}
 
-            <label htmlFor="">Contenido</label>
-            <input className={errors.contenido ? "contenido-error": ""} 
+            <label htmlFor="contenido">Contenido</label>
+            <textarea 
+                id="contenido"
+                className={errors.contenido ? "input-error": ""} 
                 type="text" 
                 placeholder="Contenido" 
                 {...register("contenido", {required: true, minLength: 20})} />
-            {errors.contenido && (
-                <span className="error-contenido">
-                    {errors.contenido.type === "required" ? "Campo obligatorio" : "Debe tener al menos 20 caracteres"}
-                    </span>) }
+            {errors.contenido && <p>El contenido debe tener al menos 20 caracteres.</p>}
 
-            <label htmlFor="">Correo electrónico</label>
-            <input type="email" placeholder="Correo electrónico" {...register("email")}/>
+            <label htmlFor="email" >Correo electrónico</label>
+            <input 
+                id="email"
+                className={errors.email ? 'input-error' : ''}
+                type="email" 
+                placeholder="Correo electrónico" 
+                {...register("email", {pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/})}/>
+            {errors.email?.type === 'pattern' && <p>Introduce un correo electrónico válido.</p>}
 
             <button type="submit">Publicar</button>
+            {message && <p className="success-message">{message}</p>}
 
 
         </form>
