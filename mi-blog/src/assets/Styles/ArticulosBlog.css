@@ -7,10 +7,11 @@
 }
 
 .card{
-    border: 1px solid rgb(127, 8, 140);
+    border: 1px solid rgba(4, 93, 26, 0.625);
     border-radius: 8px;
     padding: 16px;
     margin-bottom: 12px;
-    color: blue;
-    box-shadow: 0 2px 5px rgb(73, 70, 237);
+    color: rgb(37, 10, 124);
+    box-shadow: 0 2px 5px rgb(30, 140, 16);
+    background-color: antiquewhite;
 }
