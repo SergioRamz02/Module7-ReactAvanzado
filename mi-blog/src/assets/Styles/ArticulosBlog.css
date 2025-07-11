@@ -1,0 +1,16 @@
+.articulos{
+    padding: 16px;
+    max-width: 600px;
+    margin: auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.card{
+    border: 1px solid rgb(127, 8, 140);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    color: blue;
+    box-shadow: 0 2px 5px rgb(73, 70, 237);
+}
